@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="An interactive typography playground for the Korean alphabet. Build a Hangul syllable one letter at a time.">
+<meta name="theme-color" content="#12141c">
+<title>Hangul Lab — A letter playground</title>
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./style.css">
+<script type="module" src="./app.js"></script>
+</head>
+<body>
+<a class="skip" href="#lab" data-i="skip">Skip to the builder</a>
+<header class="nav shell">
+<a class="brand" href="#" aria-label="Hangul Lab"><span class="mark" lang="ko">ㅎ</span><span>HANGUL<span class="dim"> LAB</span></span></a>
+<nav aria-label="Main"><a href="#lab" data-i="navLab">Playground</a><a href="#guide" data-i="navGuide">Field guide</a></nav>
+<button id="language" class="locale" type="button" lang="ko" aria-label="Switch to Korean">한국어 <span aria-hidden="true">↗</span></button>
+</header>
+<main>
+<section class="hero shell" aria-labelledby="hero-title">
+<div class="hero-copy">
+<p class="eyebrow" data-i="edition">A guide to Hangul</p>
+<h1 id="hero-title"><span data-i="hero1">How Hangul</span><br><em data-i="hero2">fits together.</em></h1>
+<p class="hero-desc" data-i="intro">Hangul letters share a single block. Change the vowel and the whole arrangement shifts.</p>
+<div class="hero-picker" role="group" aria-label="Compare syllable layouts" data-label="heroLabel">
+<button type="button" aria-pressed="true" data-hero="한"><span lang="ko">한</span><span data-i="sampleSide">Side by side</span></button>
+<button type="button" aria-pressed="false" data-hero="물"><span lang="ko">물</span><span data-i="sampleStacked">Stacked</span></button>
+<button type="button" aria-pressed="false" data-hero="과"><span lang="ko">과</span><span data-i="sampleMixed">Combined</span></button>
+</div>
+<p class="hero-note" id="hero-note" aria-live="polite">ㅏ goes to the right of ㅎ. ㄴ fits underneath both.</p>
+<a class="cta" id="hero-cta" href="#lab"><span data-i="cta">Open in the builder</span><span aria-hidden="true">↘</span></a>
+</div>
+<div class="hero-visual" id="hero-visual" aria-hidden="true">
+<div class="art-meta"><span id="hero-figure">01 / 한</span><span id="hero-parts">ㅎ + ㅏ + ㄴ</span></div>
+<svg class="hero-art" viewBox="0 0 600 500" fill="none">
+<defs>
+<pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#a9b0cf" opacity=".2"/></pattern>
+<radialGradient id="halo"><stop stop-color="#45456e" stop-opacity=".65"/><stop offset="1" stop-color="#151722" stop-opacity="0"/></radialGradient>
+<linearGradient id="lav" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop stop-color="#eeebff"/><stop offset="1" stop-color="#a69ae4"/></linearGradient>
+<linearGradient id="lime" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop stop-color="#efff9f"/><stop offset="1" stop-color="#acda43"/></linearGradient>
+<linearGradient id="blue" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop stop-color="#c9d5ff"/><stop offset="1" stop-color="#738ef3"/></linearGradient>
+<filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="10" dy="18" stdDeviation="13" flood-color="#070811" flood-opacity=".75"/></filter>
+<path id="h" fill-rule="evenodd" d="M60 0h70v24H60zM22 37h146v28H22zM95 77a57 49 0 1 1 0 98 57 49 0 1 1 0-98zm0 28a26 21 0 1 0 0 42 26 21 0 1 0 0-42z"/>
+<path id="a" d="M22 0h40v72h58v34H62v92H22z"/>
+<path id="n" d="M0 0h38v71h168v37H0z"/>
+<path id="m" fill-rule="evenodd" d="M0 0h134v104H0zM30 26v52h74V26z"/>
+<path id="u" d="M0 0h210v30h-89v66H89V30H0z"/>
+<path id="r" d="M0 0h185v55H31v14h154v27H0V29h154v-3H0z"/>
+<path id="g" d="M0 0h135v120h-34V32H0z"/>
+<path id="o" d="M83 0h34v68h84v32H0V68h83z"/>
+</defs>
+<ellipse cx="307" cy="244" rx="298" ry="238" fill="url(#halo)"/>
+<path d="M20 15h560v470H20z" fill="url(#dots)"/>
+<g stroke="#8991b9" opacity=".36"><circle cx="300" cy="250" r="185"/><circle cx="300" cy="250" r="221" stroke-dasharray="3 9"/><path d="M300 15v470M60 250h480M88 109h424v283H88z" stroke-dasharray="4 7"/></g>
+<g data-specimen="한">
+<g class="piece piece-h"><g transform="translate(106 109) rotate(-13 95 87)" filter="url(#shadow)"><use href="#h" transform="translate(15 17)" fill="#554697"/><use href="#h" transform="translate(10 12)" fill="#7764b9"/><use href="#h" fill="url(#lav)" stroke="#f0eaff" stroke-width="1.3"/></g></g>
+<g class="piece piece-a"><g transform="translate(335 78) rotate(13 70 100)" filter="url(#shadow)"><use href="#a" transform="translate(15 16)" fill="#59751d"/><use href="#a" transform="translate(8 9)" fill="#88a933"/><use href="#a" fill="url(#lime)" stroke="#f4ffb7" stroke-width="1.3"/></g></g>
+<g class="piece piece-n"><g transform="translate(207 314) rotate(-8 103 54)" filter="url(#shadow)"><use href="#n" transform="translate(15 16)" fill="#3b4f9a"/><use href="#n" transform="translate(9 10)" fill="#5269bc"/><use href="#n" fill="url(#blue)" stroke="#d6e0ff" stroke-width="1.3"/></g></g>
+</g>
+<g data-specimen="물" hidden>
+<g class="piece piece-h"><g transform="translate(223 84) rotate(-9 67 52)" filter="url(#shadow)"><use href="#m" transform="translate(12 13)" fill="#66539f"/><use href="#m" fill="url(#lav)" stroke="#f0eaff"/></g></g>
+<g class="piece piece-a"><g transform="translate(191 221) rotate(5 105 48)" filter="url(#shadow)"><use href="#u" transform="translate(12 13)" fill="#718c29"/><use href="#u" fill="url(#lime)" stroke="#f4ffb7"/></g></g>
+<g class="piece piece-n"><g transform="translate(210 350) rotate(-6 92 48) scale(1 .78)" filter="url(#shadow)"><use href="#r" transform="translate(12 13)" fill="#5269bc"/><use href="#r" fill="url(#blue)" stroke="#d6e0ff"/></g></g>
+</g>
+<g data-specimen="과" hidden>
+<g class="piece piece-h"><g transform="translate(149 121) rotate(-10 67 60)" filter="url(#shadow)"><use href="#g" transform="translate(12 13)" fill="#66539f"/><use href="#g" fill="url(#lav)" stroke="#f0eaff"/></g></g>
+<g class="piece piece-a"><g transform="translate(350 98) rotate(10 65 105) scale(1 1.28)" filter="url(#shadow)"><use href="#a" transform="translate(12 11)" fill="#718c29"/><use href="#a" fill="url(#lime)" stroke="#f4ffb7"/></g></g>
+<g class="piece piece-n"><g transform="translate(115 292) rotate(-7 100 50)" filter="url(#shadow)"><use href="#o" transform="translate(12 13)" fill="#718c29"/><use href="#o" fill="url(#lime)" stroke="#f4ffb7"/></g></g>
+</g>
+<g fill="#e4ff83"><path d="M479 107h22m-11-11v22" stroke="#e4ff83"/><circle cx="111" cy="340" r="4"/><circle cx="465" cy="384" r="3"/></g>
+</svg>
+<div class="art-caption"><span id="hero-layout">Side by side</span><span data-i="art">Syllable structure</span></div>
+</div>
+</section>
+<section class="lab-section shell" id="lab" aria-labelledby="lab-title">
+<p class="eyebrow"><span class="signal"></span><span data-i="labTag">01 / THE PLAYGROUND</span></p>
+<div class="section-head"><h2 id="lab-title" data-i="labTitle">Build a block.</h2><p data-i="labDesc">Choose an initial, a vowel, and an optional final. Watch the block take shape as you change its parts.</p></div>
+<div class="lab-grid">
+<div class="stage">
+<div class="stage-top"><span data-i="specimen">LIVE SPECIMEN</span><span id="code">U+D55C</span></div>
+<div class="view-switch" role="group" aria-label="Specimen view" data-label="viewLabel">
+<button type="button" id="parts" aria-pressed="true" data-i="parts">Parts</button>
+<button type="button" id="whole" aria-pressed="false" data-i="whole">Syllable</button>
+</div>
+<div id="diagram" class="diagram" aria-hidden="true">
+<div class="guide-lines"></div><span class="cell initial" id="initial-glyph" lang="ko">ㅎ</span><span class="cell vowel" id="vowel-glyph" lang="ko">ㅏ</span><span class="cell final" id="final-glyph" lang="ko">ㄴ</span><span class="whole" id="whole-glyph" lang="ko">한</span>
+</div>
+<div class="stage-foot"><span id="layout"></span><button type="button" id="copy"><span aria-hidden="true">▣</span> <span data-i="copy">Copy syllable</span></button></div>
+</div>
+<div class="controls">
+<div class="result-bar"><div><span class="mini-label" data-i="result">YOUR SYLLABLE</span><output id="result" lang="ko" aria-live="polite">한</output></div><button type="button" id="reset" class="quiet"><span aria-hidden="true">↺</span> <span data-i="reset">Reset</span></button></div>
+<div class="presets"><span class="mini-label" data-i="try">TRY A SAMPLE</span><div id="presets"></div></div>
+<div id="pickers"></div>
+<p id="copy-status" class="sr-only" role="status"></p>
+</div>
+</div>
+</section>
+<section class="field" id="guide" aria-labelledby="guide-title"><div class="shell">
+<p class="eyebrow"><span class="signal"></span><span data-i="guideTag">02 / FIELD GUIDE</span></p>
+<div class="section-head"><h2 id="guide-title" data-i="guideTitle">Same rules.<br>Different shapes.</h2><p data-i="guideDesc">The shape of the vowel changes where the letters sit. Compare these three arrangements, then try each one in the playground.</p></div>
+<div class="examples" id="examples"></div>
+</div></section>
+</main>
+<footer class="shell footer"><a class="brand" href="#"><span class="mark" lang="ko">ㅎ</span>HANGUL LAB</a><p data-i="footer">An interactive study of the Korean alphabet.</p><a href="https://www.unicode.org/versions/Unicode17.0.0/core-spec/chapter-3/#G24646" data-i="reference">Unicode reference ↗</a><a href="#" data-i="top">Back to top ↑</a></footer>
+</body>
+</html>
